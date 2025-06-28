@@ -47,7 +47,7 @@ const Proveedor = () => {
     }));
 
     try {
-      await axiosInstance.put("/api/pedidos-proveedor/actualizar-precios", {
+      await axiosInstance.put("/pedidos-proveedor/actualizar-precios", {
         pedidoId: pedido._id,
         productos: productosActualizados,
       });
@@ -60,7 +60,7 @@ const Proveedor = () => {
 
   const confirmarPago = async (pedidoId) => {
     try {
-      await axiosInstance.put(`/api/pedidos-proveedor/confirmar-pago/${pedidoId}`);
+      await axiosInstance.put(`/pedidos-proveedor/confirmar-pago/${pedidoId}`);
       alert("Pago confirmado");
     } catch (error) {
       console.error("Error al confirmar pago:", error);

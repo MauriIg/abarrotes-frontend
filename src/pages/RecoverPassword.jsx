@@ -15,7 +15,7 @@ const RecoverPassword = () => {
     setError("");
 
     try {
-      const res = await axiosInstance.post("/users/recover/send-code", { email });
+      const res = await axiosInstance.post("/api/users/recover/send-code", { email });
       setMessage(res.data.mensaje);
 
       // Redirige a la vista de restablecer contraseña pasando el email

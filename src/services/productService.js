@@ -30,7 +30,7 @@ export const fetchProductById = async (id) => {
 
 // ✅ Crear un nuevo producto (requiere token de admin)
 export const createProduct = async (producto) => {
-  const res = await axiosInstance.post('/products', producto, getAuthHeaders());
+  const res = await axiosInstance.post('/api/products', producto, getAuthHeaders());
   return res.data.producto || res.data;
 };
 

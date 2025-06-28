@@ -28,7 +28,7 @@ const RegisterPage = () => {
     }
 
     try {
-      const respuesta = await axiosInstance.post("/users/register", {
+      const respuesta = await axiosInstance.post("/api/users/register", {
         nombre,
         email,
         password,

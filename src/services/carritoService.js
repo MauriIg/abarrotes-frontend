@@ -21,7 +21,7 @@ export const guardarCarritoUsuario = async (carritoOriginal) => {
   }));
 
   // Realiza una solicitud POST a la API para guardar el carrito actualizado
-  const response = await axiosInstance.post("/carrito", { productos });
+  const response = await axiosInstance.post("/api/carrito", { productos });
   return response.data; // Devuelve la respuesta de la API (normalmente el carrito actualizado)
 };
 

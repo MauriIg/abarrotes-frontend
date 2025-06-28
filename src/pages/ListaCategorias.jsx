@@ -15,7 +15,7 @@ const ListaCategorias = () => {
 
   const cargarCategorias = async () => {
     try {
-      const res = await axiosInstance.get("/api/categorias");
+      const res = await axiosInstance.get("/categorias");
       setCategorias(res.data);
     } catch (error) {
       console.error("Error al cargar categorías", error);
@@ -25,7 +25,7 @@ const ListaCategorias = () => {
   const eliminarCategoria = async (id) => {
     if (!window.confirm("¿Estás seguro de eliminar esta categoría?")) return;
     try {
-      await axiosInstance.delete(`/api/categorias/${id}`);
+      await axiosInstance.delete(`/categorias/${id}`);
       cargarCategorias();
     } catch (error) {
       console.error("Error al eliminar categoría", error);
@@ -44,7 +44,7 @@ const ListaCategorias = () => {
 
   const guardarEdicion = async (id) => {
     try {
-      await axiosInstance.put(`/api/categorias/${id}`, { nombre: nuevoNombre });
+      await axiosInstance.put(`/categorias/${id}`, { nombre: nuevoNombre });
       setEditandoId(null);
       cargarCategorias();
     } catch (error) {

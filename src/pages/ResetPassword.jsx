@@ -19,7 +19,7 @@ const ResetPassword = () => {
     setError("");
 
     try {
-      const res = await axiosInstance.post("/users/recover/reset", {
+      const res = await axiosInstance.post("/api/users/recover/reset", {
         email,
         code,
         newPassword,

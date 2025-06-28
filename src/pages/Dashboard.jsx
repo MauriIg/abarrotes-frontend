@@ -167,7 +167,7 @@ const Dashboard = () => {
     };
 
     try {
-      await axiosInstance.post("/orders", nuevaOrden, {
+      await axiosInstance.post("/api/orders", nuevaOrden, {
         headers: { Authorization: `Bearer ${usuario.token}` },
       });
       alert("Venta registrada exitosamente");

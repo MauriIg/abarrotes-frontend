@@ -15,7 +15,7 @@ const VerifyEmail = () => {
     e.preventDefault();
 
     try {
-      const res = await axiosInstance.post("/users/verify", {
+      const res = await axiosInstance.post("/api/users/verify", {
         email,
         code,
       });

@@ -62,7 +62,7 @@ const BajoStock = () => {
     }
 
     try {
-      await axiosInstance.post("/pedidos-proveedor", {
+      await axiosInstance.post("/api/pedidos-proveedor", {
         proveedor: supplierId,
         productos: [{ producto: productId, cantidadSolicitada: Number(order.cantidad) }],
         metodoPago: order.metodoPago,
