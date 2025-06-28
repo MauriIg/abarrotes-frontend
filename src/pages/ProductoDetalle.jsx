@@ -53,7 +53,7 @@ const ProductoDetalle = () => {
 
   const toggleFavorito = async () => {
     try {
-      const res = await axiosInstance.put(`/api/products/${producto._id}/favorito`);
+      const res = await axiosInstance.put(`/products/${producto._id}/favorito`);
       setProducto({ ...producto, favorito: res.data.favorito });
     } catch (err) {
       console.error("Error al cambiar favorito:", err);

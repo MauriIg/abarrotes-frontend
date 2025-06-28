@@ -15,7 +15,7 @@ const AddCategoria = () => {
     }
 
     try {
-      await axiosInstance.post("/api/categorias", { nombre });
+      await axiosInstance.post("/categorias", { nombre });
       setMensaje("Categoría creada exitosamente.");
       setNombre("");
       setTimeout(() => {

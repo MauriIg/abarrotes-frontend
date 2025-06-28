@@ -20,7 +20,7 @@ const Products = () => {
   const eliminarProducto = async (id) => {
     if (confirm("¿Estás seguro de eliminar este producto?")) {
       try {
-        await axiosInstance.delete(`/api/products/${id}`);
+        await axiosInstance.delete(`/products/${id}`);
         dispatch(getProducts());
       } catch (error) {
         console.error(error);
@@ -31,7 +31,7 @@ const Products = () => {
 
   const alternarVisible = async (id, visible) => {
     try {
-      await axiosInstance.put(`/api/products/${id}`, { visible: !visible });
+      await axiosInstance.put(`/products/${id}`, { visible: !visible });
       dispatch(getProducts());
     } catch (error) {
       console.error(error);
@@ -41,7 +41,7 @@ const Products = () => {
 
   const alternarFavorito = async (id) => {
     try {
-      await axiosInstance.put(`/api/products/${id}/favorito`);
+      await axiosInstance.put(`/products/${id}/favorito`);
       dispatch(getProducts());
     } catch (error) {
       console.error(error);

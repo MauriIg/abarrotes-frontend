@@ -26,7 +26,7 @@ const AddProduct = () => {
   useEffect(() => {
     const fetchCategorias = async () => {
       try {
-        const res = await axiosInstance.get("/api/categorias");
+        const res = await axiosInstance.get("/categorias");
         setCategorias(res.data);
       } catch (err) {
         console.error("Error al obtener categorías:", err);

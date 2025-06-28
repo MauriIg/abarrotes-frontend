@@ -4,7 +4,7 @@ import axiosInstance from "./axiosInstance"; // Importa la instancia de Axios pe
 // Obtener el carrito del usuario autenticado
 export const obtenerCarritoUsuario = async () => {
   // Realiza una solicitud GET a la API para obtener el carrito del usuario
-  const response = await axiosInstance.get("/api/carrito");
+  const response = await axiosInstance.get("/carrito");
   return response.data; // Devuelve los datos del carrito (productos: [...])
 };
 
@@ -21,12 +21,12 @@ export const guardarCarritoUsuario = async (carritoOriginal) => {
   }));
 
   // Realiza una solicitud POST a la API para guardar el carrito actualizado
-  const response = await axiosInstance.post("/api/carrito", { productos });
+  const response = await axiosInstance.post("/carrito", { productos });
   return response.data; // Devuelve la respuesta de la API (normalmente el carrito actualizado)
 };
 
 // Vaciar el carrito del usuario
 export const vaciarCarritoUsuario = async () => {
   // Realiza una solicitud DELETE a la API para vaciar el carrito del usuario
-  await axiosInstance.delete("/api/carrito");
+  await axiosInstance.delete("/carrito");
 };

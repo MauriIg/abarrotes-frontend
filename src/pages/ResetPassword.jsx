@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import axios from "axios";
+import axiosInstance from "../services/axiosInstance";
 
 const ResetPassword = () => {
   const location = useLocation();
@@ -19,7 +19,7 @@ const ResetPassword = () => {
     setError("");
 
     try {
-      const res = await axios.post("http://localhost:5003/api/users/recover/reset", {
+      const res = await axiosInstance.post("/users/recover/reset", {
         email,
         code,
         newPassword,

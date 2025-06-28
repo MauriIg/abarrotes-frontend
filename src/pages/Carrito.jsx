@@ -109,7 +109,7 @@ const Carrito = () => {
   
     try {
       const res = await axiosInstance.post(
-        "/api/payment/create-checkout-session",
+        "/payment/create-checkout-session",
         {
           cartItems: carrito.map(p => ({
             productoId: p._id,

@@ -12,25 +12,25 @@ const getAuthHeaders = () => {
 
 // ✅ ADMIN: obtener todos los productos (requiere token de admin)
 export const fetchProducts = async () => {
-  const res = await axiosInstance.get('/api/products/admin/all', getAuthHeaders());
+  const res = await axiosInstance.get('/products/admin/all', getAuthHeaders());
   return res.data;
 };
 
 // ✅ CLIENTE o CAJERO: obtener solo productos visibles (público)
 export const fetchVisibleProducts = async () => {
-  const res = await axiosInstance.get('/api/products');
+  const res = await axiosInstance.get('/products');
   return res.data;
 };
 
 // ✅ Obtener un solo producto por ID (público)
 export const fetchProductById = async (id) => {
-  const res = await axiosInstance.get(`/api/products/${id}`);
+  const res = await axiosInstance.get(`/products/${id}`);
   return res.data;
 };
 
 // ✅ Crear un nuevo producto (requiere token de admin)
 export const createProduct = async (producto) => {
-  const res = await axiosInstance.post('/api/products', producto, getAuthHeaders());
+  const res = await axiosInstance.post('/products', producto, getAuthHeaders());
   return res.data.producto || res.data;
 };
 

@@ -9,7 +9,7 @@ const AsignarRapiditos = () => {
   useEffect(() => {
     const fetchRapiditosInfo = async () => {
       try {
-        const usuariosRes = await axiosInstance.get("/api/users", {
+        const usuariosRes = await axiosInstance.get("/users", {
           headers: {
             Authorization: `Bearer ${usuario.token}`,
           },
@@ -19,7 +19,7 @@ const AsignarRapiditos = () => {
 
         const resultados = await Promise.all(
           rapiditos.map(async (r) => {
-            const ordenesRes = await axiosInstance.get(`/api/orders/rapidito/${r._id}`, {
+            const ordenesRes = await axiosInstance.get(`/orders/rapidito/${r._id}`, {
               headers: {
                 Authorization: `Bearer ${usuario.token}`,
               },

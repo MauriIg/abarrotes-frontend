@@ -14,7 +14,7 @@ const EditProduct = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const res = await axiosInstance.get(`/api/products/${id}`);
+        const res = await axiosInstance.get(`/products/${id}`);
         setForm(res.data);
       } catch (err) {
         console.error(err);
@@ -24,7 +24,7 @@ const EditProduct = () => {
 
     const fetchCategorias = async () => {
       try {
-        const res = await axiosInstance.get("/api/categorias");
+        const res = await axiosInstance.get("/categorias");
         setCategorias(res.data);
       } catch (err) {
         console.error("Error al cargar categorías", err);
@@ -58,7 +58,7 @@ const EditProduct = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axiosInstance.put(`/api/products/${id}`, {
+      await axiosInstance.put(`/products/${id}`, {
         ...form,
         precio: parseFloat(form.precio),
         stock: parseInt(form.stock),

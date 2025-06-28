@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import axios from "axios";
+import axiosInstance from "../services/axiosInstance";
 
 const VerifyEmail = () => {
   const location = useLocation();
@@ -15,7 +15,7 @@ const VerifyEmail = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post("http://localhost:5003/api/users/verify", {
+      const res = await axiosInstance.post("/users/verify", {
         email,
         code,
       });

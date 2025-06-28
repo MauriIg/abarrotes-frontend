@@ -14,7 +14,7 @@ const BajoStock = () => {
   useEffect(() => {
     const fetchLowStock = async () => {
       try {
-        const res = await axiosInstance.get("/api/stock/bajo");
+        const res = await axiosInstance.get("/stock/bajo");
         const data = res.data;
         const formatted = Array.isArray(data) ? data : Object.values(data);
         setGroups(formatted);
@@ -28,7 +28,7 @@ const BajoStock = () => {
 
     const fetchPendingOrders = async () => {
       try {
-        const res = await axiosInstance.get("/api/pedidos-proveedor/pendientes-revision");
+        const res = await axiosInstance.get("/pedidos-proveedor/pendientes-revision");
         setPendingOrders(res.data);
       } catch (error) {
         console.error("Error fetching pending supplier orders", error);
@@ -62,7 +62,7 @@ const BajoStock = () => {
     }
 
     try {
-      await axiosInstance.post("/api/pedidos-proveedor", {
+      await axiosInstance.post("/pedidos-proveedor", {
         proveedor: supplierId,
         productos: [{ producto: productId, cantidadSolicitada: Number(order.cantidad) }],
         metodoPago: order.metodoPago,
@@ -78,7 +78,7 @@ const BajoStock = () => {
 
   const handleReviewOrder = async (orderId, action) => {
     try {
-      await axiosInstance.put(`/api/pedidos-proveedor/revision/${orderId}`, {
+      await axiosInstance.put(`/pedidos-proveedor/revision/${orderId}`, {
         accion: action,
       });
       alert(`Order ${action}ed successfully.`);

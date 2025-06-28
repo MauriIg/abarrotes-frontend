@@ -33,7 +33,7 @@ const Dashboard = () => {
 
   const cargarOrdenesPendientes = async () => {
     try {
-      const res = await axiosInstance.get(`/api/orders?estado=${encodeURIComponent(ESTADOS_ORDEN.PARA_RECOGER)}`);
+      const res = await axiosInstance.get(`/orders?estado=${encodeURIComponent(ESTADOS_ORDEN.PARA_RECOGER)}`);
       const ordenesFiltradas = res.data.filter((orden) => !orden.corteCaja);
       setOrdenes(ordenesFiltradas);
     } catch (error) {
@@ -43,7 +43,7 @@ const Dashboard = () => {
 
   const cargarVentasDelCajero = async () => {
     try {
-      const res = await axiosInstance.get("/api/orders/ventas/cajero", {
+      const res = await axiosInstance.get("/orders/ventas/cajero", {
         headers: {
           Authorization: `Bearer ${usuario.token}`,
         },
@@ -91,7 +91,7 @@ const Dashboard = () => {
     URL.revokeObjectURL(url);
 
     try {
-      await axiosInstance.put("/api/orders/corte-caja", {}, {
+      await axiosInstance.put("/orders/corte-caja", {}, {
         headers: {
           Authorization: `Bearer ${usuario.token}`,
         },
@@ -107,7 +107,7 @@ const Dashboard = () => {
 
   const marcarComoFinalizado = async (id) => {
     try {
-      await axiosInstance.put(`/api/orders/${id}/estado`, {
+      await axiosInstance.put(`/orders/${id}/estado`, {
         estado: ESTADOS_ORDEN.COMPLETADA
       }, {
         headers: {
@@ -167,7 +167,7 @@ const Dashboard = () => {
     };
 
     try {
-      await axiosInstance.post("/api/orders", nuevaOrden, {
+      await axiosInstance.post("/orders", nuevaOrden, {
         headers: { Authorization: `Bearer ${usuario.token}` },
       });
       alert("Venta registrada exitosamente");

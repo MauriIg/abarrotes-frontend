@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import axiosInstance from "../services/axiosInstance";
 import { useNavigate } from "react-router-dom";
 
 const RecoverPassword = () => {
@@ -15,7 +15,7 @@ const RecoverPassword = () => {
     setError("");
 
     try {
-      const res = await axios.post("http://localhost:5003/api/users/recover/send-code", { email });
+      const res = await axiosInstance.post("/users/recover/send-code", { email });
       setMessage(res.data.mensaje);
 
       // Redirige a la vista de restablecer contraseña pasando el email

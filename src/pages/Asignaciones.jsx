@@ -20,7 +20,7 @@ const Asignaciones = () => {
 
     const cargarDatos = async () => {
       try {
-        const resProd = await axiosInstance.get("/api/products");
+        const resProd = await axiosInstance.get("/products");
         setProducts(resProd.data);
         setProveedores(await obtenerProveedores());
       } catch (error) {
@@ -33,8 +33,8 @@ const Asignaciones = () => {
 
   const actualizarProducto = async (id, campo, valor) => {
     try {
-      await axiosInstance.put(`/api/products/${id}`, { [campo]: valor });
-      const res = await axiosInstance.get("/api/products");
+      await axiosInstance.put(`/products/${id}`, { [campo]: valor });
+      const res = await axiosInstance.get("/products");
       setProducts(res.data);
     } catch (error) {
       alert("Error al actualizar producto");

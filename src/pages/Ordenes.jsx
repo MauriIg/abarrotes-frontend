@@ -9,7 +9,7 @@ const Ordenes = () => {
   useEffect(() => {
     const cargarOrdenes = async () => {
       try {
-        const res = await axiosInstance.get("/api/orders/mis-ordenes");
+        const res = await axiosInstance.get("/orders/mis-ordenes");
         const ordenesOrdenadas = res.data.sort(
           (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
         );

@@ -10,7 +10,7 @@ const Favoritos = () => {
   useEffect(() => {
     const obtenerFavoritos = async () => {
       try {
-        const res = await axiosInstance.get("/api/products");
+        const res = await axiosInstance.get("/products");
         const soloFavoritos = res.data.filter((p) => p.favorito);
         setFavoritos(soloFavoritos);
       } catch (err) {

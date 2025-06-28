@@ -20,7 +20,7 @@ const Proveedor = () => {
 
     const obtenerPedidos = async () => {
       try {
-        const response = await axiosInstance.get("/api/pedidos-proveedor/mis-pedidos");
+        const response = await axiosInstance.get("/pedidos-proveedor/mis-pedidos");
         setPedidos(response.data);
       } catch (error) {
         console.error("Error al obtener pedidos:", error);

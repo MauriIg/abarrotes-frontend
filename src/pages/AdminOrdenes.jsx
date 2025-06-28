@@ -13,7 +13,7 @@ const AdminOrdenes = () => {
   useEffect(() => {
     const cargarOrdenes = async () => {
       try {
-        const res = await axiosInstance.get("/api/orders", {
+        const res = await axiosInstance.get("/orders", {
           headers: { Authorization: `Bearer ${token}` },
         });
         const ordenadas = res.data.sort(
@@ -32,7 +32,7 @@ const AdminOrdenes = () => {
     if (!window.confirm("¿Seguro que deseas eliminar esta orden?")) return;
 
     try {
-      await axiosInstance.delete(`/api/orders/${id}`, {
+      await axiosInstance.delete(`/orders/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setOrdenes((prev) => prev.filter((orden) => orden._id !== id));

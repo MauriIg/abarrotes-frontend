@@ -24,7 +24,7 @@ const Rapidito = () => {
 
     const obtenerOrdenesAsignadas = async () => {
       try {
-        const res = await axiosInstance.get("/api/orders/asignadas", {
+        const res = await axiosInstance.get("/orders/asignadas", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setOrdenes(res.data);
@@ -42,7 +42,7 @@ const Rapidito = () => {
   const marcarComoEntregada = async (ordenId) => {
     try {
       await axiosInstance.put(
-        `/api/orders/${ordenId}/entregada`,
+        `/orders/${ordenId}/entregada`,
         {},
         {
           headers: { Authorization: `Bearer ${token}` },
